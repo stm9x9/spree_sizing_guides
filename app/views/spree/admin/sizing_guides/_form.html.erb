@@ -1,0 +1,32 @@
+<div data-hook="admin_store_form_fields">
+
+  <div class="omega twelve columns">
+    <%= f.fields_for :sizing_guide_image do |ff| %>
+        <%= ff.label :attachment, Spree.t(:sizing_guide_image) %>
+        <%= ff.file_field :attachment %>
+    <% end %>
+  </div>
+
+  <div class="alpha six columns">
+    <%= f.field_container :name do %>
+        <%= f.label :name, Spree.t(:sizing_guide_name) %><br />
+        <%= f.text_field :name, :class => 'fullwidth' %>
+        <%= error_message_on :sizing_guide, :name %>
+    <% end %>
+
+    <%= f.field_container :sizing_guide_description do %>
+        <%= f.label :description, Spree.t(:sizing_guide_description) %><br />
+        <%= f.text_area :description, :cols => 60, :rows => 4, :class => 'fullwidth' %>
+        <%= error_message_on :sizing_guide, :description %>
+    <% end %>
+  </div>
+
+  <div class="six columns">
+    <%= f.field_container :sizing_guide_slug do %>
+        <%= f.label :slug, Spree.t(:sizing_guide_slug) %><br />
+        <%= f.text_field :slug, :class => 'fullwidth' %>
+        <%= error_message_on :sizing_guide, :label %>
+    <% end %>
+  </div>
+
+</div>

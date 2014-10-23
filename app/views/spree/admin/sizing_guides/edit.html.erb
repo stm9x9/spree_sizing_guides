@@ -1,0 +1,29 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+    <%= Spree.t(:editing_sizing_guide) %>
+<% end %>
+
+<% content_for :page_actions do %>
+    <li>
+      <%= button_link_to Spree.t(:back_to_sizing_guides_list), spree.admin_sizing_guides_path, :icon => 'icon-arrow-left' %>
+    </li>
+<% end %>
+
+<div data-hook="admin_sizing_guide_edit_form_header">
+  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @sizing_guide } %>
+</div>
+
+<div data-hook="admin_sizing_guide_edit_form">
+  <%= form_for [:admin, @sizing_guide], :html => {:multipart => true} do |f| %>
+      <fieldset class="no-border-top">
+        <%= render :partial => 'form', :locals => { :f => f } %>
+
+        <div class="clear"></div>
+
+        <div data-hook="admin_sizing_guide_edit_form_buttons">
+          <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+        </div>
+      </fieldset>
+  <% end %>
+</div>

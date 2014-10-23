@@ -1,6 +1,7 @@
 FactoryGirl.define do
-  # Define your Spree extensions Factories within this file to enable applications, and other extensions to use and override them.
-  #
-  # Example adding this to your spec_helper will load these Factories for use:
-  # require 'spree_sizing_guides/factories'
+  factory :sizing_guide, :class => Spree::SizingGuide do
+    name 'A Sizing Guide'
+    description 'A Sizing Guide Description'
+    slug 'a-sizing-guide'
+  end
 end

@@ -1,5 +1,6 @@
 # Run Coverage report
 require 'simplecov'
+
 SimpleCov.start do
   add_filter 'spec/dummy'
   add_group 'Controllers', 'app/controllers'
@@ -79,4 +80,6 @@ RSpec.configure do |config|
   end
 
   config.fail_fast = ENV['FAIL_FAST'] || false
+
+  config.deprecation_stream = 'log/rspec-deprecations.log'
 end

@@ -1,0 +1,43 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+    <%= Spree.t(:sizing_guides) %>
+<% end %>
+
+<% content_for :page_actions do %>
+    <li>
+      <%= button_link_to Spree.t(:new_sizing_guide), new_object_url,  :icon => 'icon-plus', :id => 'admin_new_sizing_guide_link' %>
+    </li>
+<% end %>
+
+<table class="index" id='listing_sizing_guides'>
+  <colgroup>
+    <col style="width: 120px">
+    <col style="width: 80px">
+    <col style="width: 80px">
+    <col style="width: 220px">
+    <col style="width: 15%">
+  </colgroup>
+  <thead>
+  <th><%= Spree.t(:sizing_guide_name) %></th>
+  <th><%= Spree.t(:sizing_guide_description) %></th>
+  <th><%= Spree.t(:sizing_guide_image) %></th>
+  <th><%= Spree.t(:sizing_guide_slug) %></th>
+  <th data-hook="admin_sizing_guides_index_header_actions" class="actions"></th>
+  </thead>
+  <tbody>
+  <% @sizing_guides.each do |sizing_guide|%>
+      <tr id="<%= spree_dom_id sizing_guide %>"
+          data-hook="admin_sizing_guides_index_rows" class="<%= cycle('odd', 'even') %>">
+        <td><%= sizing_guide.name %></td>
+        <td><%= sizing_guide.description %></td>
+        <td>Images</td>
+        <td><%= sizing_guide.slug %></td>
+        <td data-hook="admin_sizing_guides_index_row_actions" class="actions">
+          <%= link_to_edit sizing_guide, :no_text => true %> &nbsp;
+          <%= link_to_delete sizing_guide, :no_text => true %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
