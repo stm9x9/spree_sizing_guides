@@ -2,15 +2,9 @@ module Spree
   module Admin
     class SizingGuidesController < ResourceController
 
-      before_filter :load_data, only: :edit
-
       def new
         @sizing_guide = SizingGuide.new
         @sizing_guide.build_sizing_guide_image
-      end
-
-      def edit
-
       end
 
       private
@@ -19,10 +13,13 @@ module Spree
         [:name, :description, :permalink, sizing_guide_image: [:attachment] ]
       end
 
-      def load_data
-        @sizing_guide = SizingGuide.friendly.find(params[:id])
+      def find_resource
+        if parent_data.present?
+          parent.send(controller_name).friendly.find(params[:id])
+        else
+          model_class.friendly.find(params[:id])
+        end
       end
-
     end
   end
 end

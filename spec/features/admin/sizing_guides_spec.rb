@@ -8,6 +8,7 @@ feature 'With sizing guides' do
 
     scenario 'edit an existing sizing guide', js: false, wip: false do
       visit spree.edit_admin_sizing_guide_path sizing_guide
+      expect(page).to have_content('Editing Sizing Guide')
     end
 
     scenario 'create a new sizing guide', js: false, wip: false do
