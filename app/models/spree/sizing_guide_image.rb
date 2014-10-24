@@ -4,7 +4,7 @@ module Spree
     validate :no_attachment_errors
 
     has_attached_file :attachment,
-                      styles: { thumb: '200', large: '800' },
+                      styles: { thumb: '200', large: '800x800' },
                       default_style: :large,
                       url: '/spree/sizing_guides/:id/:style/:basename.:extension',
                       path: ':rails_root/public/spree/sizing_guides/:id/:style/:basename.:extension',
