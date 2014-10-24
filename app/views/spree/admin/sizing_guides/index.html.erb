@@ -31,8 +31,8 @@
           data-hook="admin_sizing_guides_index_rows" class="<%= cycle('odd', 'even') %>">
         <td><%= sizing_guide.name %></td>
         <td><%= sizing_guide.description %></td>
-        <td>Images</td>
-        <td><%= sizing_guide.slug %></td>
+        <td><%= link_to(sizing_guide.sizing_guide_image(:thumb), sizing_guide.sizing_guide_image.attachment.url(:large), target: '_blank' ) %></td>
+        <td>/sizing_guides/<%= sizing_guide.slug %></td>
         <td data-hook="admin_sizing_guides_index_row_actions" class="actions">
           <%= link_to_edit sizing_guide, :no_text => true %> &nbsp;
           <%= link_to_delete sizing_guide, :no_text => true %>
