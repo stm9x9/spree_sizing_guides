@@ -1,7 +1,7 @@
 module Spree
   class SizingGuidesController < Spree::StoreController
     respond_to :html
-    layout nil
+    layout false
     before_filter :load_sizing_guide, only: :show
 
     private
