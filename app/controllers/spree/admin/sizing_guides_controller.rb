@@ -2,11 +2,15 @@ module Spree
   module Admin
     class SizingGuidesController < ResourceController
 
-      before_filter :load_data, only: :show
+      before_filter :load_data, only: :edit
 
       def new
         @sizing_guide = SizingGuide.new
         @sizing_guide.build_sizing_guide_image
+      end
+
+      def edit
+
       end
 
       private
