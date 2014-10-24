@@ -4,6 +4,11 @@ feature 'With sizing guides' do
   stub_authorization!
 
   context 'as an admin with valid credentials, I can', admin: true, pending: false do
+    let!(:sizing_guide) {create(:sizing_guide)}
+
+    scenario 'edit an existing sizing guide', js: false, wip: false do
+      visit spree.edit_admin_sizing_guide_path sizing_guide
+    end
 
     scenario 'create a new sizing guide', js: false, wip: false do
       visit '/admin'

@@ -12,9 +12,7 @@ module Spree
     validates :slug, length: { minimum: 3 }
     validates :sizing_guide_image, presence: true
 
-    # after_initialize :initialize_sizing_guide_image
     after_destroy :punch_slug
-
 
     def to_param
       slug
@@ -25,10 +23,6 @@ module Spree
     def punch_slug
       update_column :slug, "#{Time.now.to_i}_#{slug}" # punch slug with date prefix to allow reuse of original
     end
-
-    # def initialize_sizing_guide_image
-    #   self.sizing_guide_image = Spree::SizingGuideImage.new
-    # end
 
   end
 end
